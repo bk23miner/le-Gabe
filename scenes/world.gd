@@ -5,7 +5,7 @@ var PL: Node = null
 func _ready() -> void:
 
 
-	var scene = load("res://scenes/world.tscn")
+	var scene = load("res://scenes/Player.tscn")
 	var instance = scene.instantiate()
 	add_child(instance)
 

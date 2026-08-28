@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://bwaa4tsrav31h"]
 
+[ext_resource type="Script" uid="uid://beo7o7nbnn0sb" path="res://scenes/world.gd" id="1_nnsk1"]
+
 [node name="World" type="Node2D" unique_id=538709576]
+script = ExtResource("1_nnsk1")
 
 [node name="Terrain" type="Node2D" parent="." unique_id=1722484335]
 
