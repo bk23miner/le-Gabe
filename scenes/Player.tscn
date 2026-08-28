@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bgos1neyhkuf"]
 
 [ext_resource type="Script" uid="uid://xh368dmc624i" path="res://scripts/player.gd" id="1_v6fml"]
+[ext_resource type="Texture2D" uid="uid://damgmngihqkqw" path="res://assets/wings.png" id="2_3li8b"]
 [ext_resource type="Texture2D" uid="uid://crj6gnwc3r28x" path="res://assets/sprites.png" id="2_v6fml"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msxrf"]
@@ -58,6 +59,20 @@ shape = SubResource("RectangleShape2D_msxrf")
 zoom = Vector2(5, 5)
 position_smoothing_enabled = true
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=530342090]
+position = Vector2(0, -0.955)
+scale = Vector2(0.505, 0.505)
+texture = ExtResource("2_3li8b")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=313501202]
 sprite_frames = SubResource("SpriteFrames_msxrf")
 animation = &"right"
+
+[node name="Timer" type="Timer" parent="." unique_id=1461664903]
+wait_time = 0.15
+
+[node name="Dash-Timer" type="Timer" parent="." unique_id=433442674]
+wait_time = 0.08
+
+[connection signal="timeout" from="Timer" to="." method="reset_Wings"]
+[connection signal="timeout" from="Dash-Timer" to="." method="_on_dash_timer_timeout"]
