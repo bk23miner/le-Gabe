@@ -24,3 +24,5 @@ func _physics_process(delta):
 	elif Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_speed
 		
+func get_rDJ() -> int:
+	return remaining_djumps

@@ -1,3 +1,19 @@
 [gd_scene format=3 uid="uid://ckwyjhdmrrcje"]
 
-[node name="Hud" type="Node2D" unique_id=895899503]
+[ext_resource type="Script" uid="uid://dlfg42jugnho5" path="res://scripts/hud.gd" id="1_ahhtf"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=702915972]
+script = ExtResource("1_ahhtf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1683968047]
+anchors_preset = -1
+anchor_right = 0.312
+anchor_bottom = 0.296
+offset_right = -0.42401123
+offset_bottom = 0.19200134
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1826824433]
+layout_mode = 2
+text = "HAllo"
+horizontal_alignment = 1
+vertical_alignment = 1

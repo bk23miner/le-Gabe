@@ -8,7 +8,8 @@ func _ready() -> void:
 	var scene = load("res://scenes/world.tscn")
 	var instance = scene.instantiate()
 	add_child(instance)
-
+	
+	add_child(load("res://scenes/hud.tscn").instantiate())
 
 	PL = instance
 
