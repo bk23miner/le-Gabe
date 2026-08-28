@@ -25,14 +25,13 @@ func _physics_process(delta):
 		velocity.y = jump_speed
 	var Body = $AnimatedSprite2D
 	
-	
-	var direction = velocity.angle_to(Vector2(1, 0))
+	var direction = sign(velocity.x)
 		#rechts	
-	if direction <= PI/4.0 and direction >=-PI/4.0:
+	if direction > 0:
 		Body.play("right")
 	#links
-	if direction >=PI*0.75 or direction <=-PI*0.75:
+	if direction < 0:
 		Body.play("left")	
-	else:
+	elif direction == 0:
 		Body.play("idle")
 		
