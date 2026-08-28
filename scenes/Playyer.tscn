@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bgos1neyhkuf"]
+
+[ext_resource type="Texture2D" uid="uid://do6n4iwn8kdi3" path="res://assets/Celeste-Game-Free-PNG-1085915686.png" id="1_h54vp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_msxrf"]
+size = Vector2(179, 214)
+
+[node name="Playyer" type="Node2D" unique_id=387559522]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1460465453]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1374600871]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_msxrf")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1996704637]
+texture = ExtResource("1_h54vp")

@@ -1,3 +1,7 @@
 [gd_scene format=3 uid="uid://bwaa4tsrav31h"]
 
 [node name="World" type="Node2D" unique_id=538709576]
+
+[node name="Terrain" type="Node2D" parent="." unique_id=1722484335]
+
+[node name="Foreground" type="TileMapLayer" parent="Terrain" unique_id=1729247231]
