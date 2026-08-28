@@ -1,9 +1,12 @@
 class_name Player extends CharacterBody2D
 
-@export var speed = 1200
-@export var jump_speed = -1800
-@export var gravity = 4000
+@export var speed = 120
+@export var jump_speed = -180
+@export var gravity = 400
 
+@export var remaining_djumps = 1
+@export var remaining_dash = 0
+@export var remaining_walljump = 0
 
 func _physics_process(delta):
 	# Add gravity every frame
@@ -14,6 +17,10 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-	# Only allow jumping when on the ground
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	# Only allow jumping when on the ground or if djumps greater 0
+	if Input.is_action_just_pressed("jump") and !is_on_floor() and remaining_djumps>0:
 		velocity.y = jump_speed
+		remaining_djumps -= 1
+	elif Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = jump_speed
+		
