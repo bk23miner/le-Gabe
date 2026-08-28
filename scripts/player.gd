@@ -1,26 +1,19 @@
 class_name Player extends CharacterBody2D
 
-@export var SPEED := 200.0
-@export var DASH := 300.0
-
-var dashing = false
-var cooldown = true
-var last_direction := "front"
-var is_picking_up = false
-var was_walking = false
-var disable_input = false
+@export var speed = 1200
+@export var jump_speed = -1800
+@export var gravity = 4000
 
 
 func _physics_process(delta):
-	if disable_input:
-		return
+	# Add gravity every frame
+	velocity.y += gravity * delta
 
-	var input_direction = Input.get_vector("left", "right", "up", "down")
-	#if Input.is_action_just_pressed("dash") and cooldown:
-	#	dashing = true
-	#	cooldown = false
-	#if dashing:
-	#	velocity = input_direction * (SPEED + DASH)
-	#else:
-	velocity = input_direction * SPEED
+	# Input affects x axis only
+	velocity.x = Input.get_axis("left", "right") * speed
+
 	move_and_slide()
+
+	# Only allow jumping when on the ground
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = jump_speed

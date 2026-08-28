@@ -10,7 +10,9 @@ size = Vector2(179, 214)
 script = ExtResource("1_v6fml")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=380338251]
+process_physics_priority = 1
 position = Vector2(-1, 0)
+scale = Vector2(0.395, 0.395)
 shape = SubResource("RectangleShape2D_msxrf")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=32155200]
