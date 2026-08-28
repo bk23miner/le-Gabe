@@ -1,10 +1,49 @@
 [gd_scene format=3 uid="uid://bgos1neyhkuf"]
 
-[ext_resource type="Texture2D" uid="uid://do6n4iwn8kdi3" path="res://assets/Celeste-Game-Free-PNG-1085915686.png" id="1_p0vlq"]
 [ext_resource type="Script" uid="uid://xh368dmc624i" path="res://scripts/player.gd" id="1_v6fml"]
+[ext_resource type="Texture2D" uid="uid://crj6gnwc3r28x" path="res://assets/sprites.png" id="2_v6fml"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msxrf"]
 size = Vector2(179, 214)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3li8b"]
+atlas = ExtResource("2_v6fml")
+region = Rect2(0, 0, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdl7e"]
+atlas = ExtResource("2_v6fml")
+region = Rect2(16, 0, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qu4a1"]
+atlas = ExtResource("2_v6fml")
+region = Rect2(8, 0, 7, 7)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_msxrf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3li8b")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdl7e")
+}],
+"loop": 1,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qu4a1")
+}],
+"loop": 1,
+"name": &"right",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D" unique_id=1973689430 groups=["Player"]]
 script = ExtResource("1_v6fml")
@@ -15,10 +54,10 @@ position = Vector2(-1, 0)
 scale = Vector2(0.395, 0.395)
 shape = SubResource("RectangleShape2D_msxrf")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=32155200]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_p0vlq")
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2119053237]
 zoom = Vector2(1.2, 1.2)
 position_smoothing_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=313501202]
+sprite_frames = SubResource("SpriteFrames_msxrf")
+animation = &"left"

@@ -14,7 +14,7 @@ func _physics_process(delta):
 
 	# Input affects x axis only
 	velocity.x = Input.get_axis("left", "right") * speed
-
+	
 	move_and_slide()
 
 	# Only allow jumping when on the ground or if djumps greater 0
@@ -23,4 +23,16 @@ func _physics_process(delta):
 		remaining_djumps -= 1
 	elif Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_speed
+	var Body = $AnimatedSprite2D
+	
+	
+	var direction = velocity.angle_to(Vector2(1, 0))
+		#rechts	
+	if direction <= PI/4.0 and direction >=-PI/4.0:
+		Body.play("right")
+	#links
+	if direction >=PI*0.75 or direction <=-PI*0.75:
+		Body.play("left")	
+	else:
+		Body.play("idle")
 		
