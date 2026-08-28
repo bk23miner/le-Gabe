@@ -9,7 +9,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var I = get_Int()
-	$VBoxContainer/Label.text = str(get_tree().get_first_node_in_group("Player").remaingDjum)
+	$VBoxContainer/Label.text = str(get_tree().get_first_node_in_group("Player").remaining_djumps)
 	pass
 	
 
