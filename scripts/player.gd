@@ -4,8 +4,8 @@ class_name Player extends CharacterBody2D
 @export var jump_speed = -180
 @export var gravity = 400
 
-@export var remaining_djumps = 1
-@export var remaining_dash = 0
+@export var remaining_djumps = 1000
+@export var remaining_dash = 3
 @export var remaining_walljump = 0
 
 func _physics_process(delta):
@@ -34,4 +34,6 @@ func _physics_process(delta):
 		Body.play("left")	
 	elif direction == 0:
 		Body.play("idle")
+	if Input.is_action_just_pressed("dash"):
+		velocity = Input.get_vector("left", "right","up","down") * speed *3
 		
