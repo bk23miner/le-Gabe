@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://crj6gnwc3r28x" path="res://assets/sprites.png" id="2_v6fml"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msxrf"]
-size = Vector2(179, 200)
+size = Vector2(179, 175)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3li8b"]
 atlas = ExtResource("2_v6fml")
@@ -50,6 +50,7 @@ script = ExtResource("1_v6fml")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=380338251]
 process_physics_priority = 1
+position = Vector2(0, -0.03)
 scale = Vector2(0.04, 0.04)
 shape = SubResource("RectangleShape2D_msxrf")
 
