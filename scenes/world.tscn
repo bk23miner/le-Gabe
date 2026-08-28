@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://bwaa4tsrav31h"]
 
 [ext_resource type="Script" uid="uid://beo7o7nbnn0sb" path="res://scenes/world.gd" id="1_nnsk1"]
+[ext_resource type="Texture2D" uid="uid://cy12ux2isheuv" path="res://assets/temp_ground.png" id="2_rwgxs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_msxrf"]
+size = Vector2(1501, 576)
 
 [node name="World" type="Node2D" unique_id=538709576]
 script = ExtResource("1_nnsk1")
@@ -8,3 +12,14 @@ script = ExtResource("1_nnsk1")
 [node name="Terrain" type="Node2D" parent="." unique_id=1722484335]
 
 [node name="Foreground" type="TileMapLayer" parent="Terrain" unique_id=1729247231]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1118562819]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=572106592]
+position = Vector2(635, 864)
+shape = SubResource("RectangleShape2D_msxrf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=62428974]
+position = Vector2(658.5, 855)
+scale = Vector2(2.5142405, 1)
+texture = ExtResource("2_rwgxs")

@@ -6,14 +6,17 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msxrf"]
 size = Vector2(179, 214)
 
-[node name="Player" type="Node2D" unique_id=387559522]
+[node name="Player" type="CharacterBody2D" unique_id=1973689430]
 script = ExtResource("1_v6fml")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1460465453]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1374600871]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=380338251]
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_msxrf")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1996704637]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=32155200]
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_p0vlq")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2119053237]
+zoom = Vector2(1.2, 1.2)
+position_smoothing_enabled = true
