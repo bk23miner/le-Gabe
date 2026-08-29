@@ -17,6 +17,7 @@ var dashing = false
 var temp_x_vel
 var temp_y_vel
 var temp_bd_y_vel
+var jump = false
 
 var Screen
 
@@ -62,6 +63,7 @@ func _physics_process(delta):
 				remaining_djumps -= 1
 				get_tree().get_first_node_in_group("World").Djump()
 			elif Input.is_action_just_pressed("jump") and floor:
+				jump = true
 				velocity.y = jump_speed
 		
 		var Body = $AnimatedSprite2D
@@ -89,15 +91,18 @@ func _physics_process(delta):
 
 	
 func counting(d):
-	if !is_on_floor():
+	if !is_on_floor() && !jump:
 		count+=d
 		if count <= 0.2:
 			floor = true
 		else:
 			floor = false
+	elif !is_on_floor():
+		floor = false
 	else:
 		count = 0
 		floor = true
+		jump = false
 		
 
 func _on_dash_timer_timeout() -> void:
