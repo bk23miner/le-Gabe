@@ -5,7 +5,7 @@ var PL: Node = null
 var count = 0
 var dash = false
 var cnt = 0
-static var Level = 4
+static var Level = 5
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Wings = $"D-Jump"
@@ -27,6 +27,9 @@ func _ready() -> void:
 	elif Level == 4:
 		$lv4/Camera2D4.enabled = true
 		PL.position = $lv4/Pspawn.position
+	elif Level == 5:
+		$lvl5/Camera2D5.enabled = true
+		PL.position = $lvl5/Pspawn.position
 	
 
 
