@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://xh368dmc624i" path="res://scripts/player.gd" id="1_v6fml"]
 [ext_resource type="Texture2D" uid="uid://damgmngihqkqw" path="res://assets/wings.png" id="2_3li8b"]
 [ext_resource type="Texture2D" uid="uid://crj6gnwc3r28x" path="res://assets/sprites.png" id="2_v6fml"]
+[ext_resource type="Texture2D" uid="uid://coj4fimfvy8ww" path="res://assets/salvation.png" id="3_mdl7e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msxrf"]
 size = Vector2(179, 175)
@@ -21,6 +22,14 @@ region = Rect2(8, 0, 7, 7)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_msxrf"]
 animations = [{
+"frames": [{
+"duration": 1000000000.0,
+"texture": ExtResource("3_mdl7e")
+}],
+"loop": 1,
+"name": &"death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3li8b")
@@ -66,7 +75,7 @@ texture = ExtResource("2_3li8b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=313501202]
 sprite_frames = SubResource("SpriteFrames_msxrf")
-animation = &"right"
+animation = &"death"
 
 [node name="Timer" type="Timer" parent="." unique_id=1461664903]
 wait_time = 0.15
