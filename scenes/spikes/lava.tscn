@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://b5pcl7nb18wn4"]
+
+[ext_resource type="Script" uid="uid://lni6cnh7sm32" path="res://scripts/spike.gd" id="1_ipwp4"]
+[ext_resource type="Texture2D" uid="uid://b8gu2gj2jb4b5" path="res://assets/lava.png" id="2_ipwp4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hki0m"]
+atlas = ExtResource("2_ipwp4")
+region = Rect2(0, 0, 7, 7)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qfnet"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hki0m")
+}],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="Spike" type="Node2D" unique_id=239235596]
+script = ExtResource("1_ipwp4")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1628449046]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=1840373040]
+sprite_frames = SubResource("SpriteFrames_qfnet")
+animation = &"new_animation"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1401711752]
+position = Vector2(0.5, -0.5)
+polygon = PackedVector2Array(-4, -3, -4, 4, 3, 4, 3, -3)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
