@@ -18,6 +18,8 @@ var temp_x_vel
 var temp_y_vel
 var temp_bd_y_vel
 
+var Screen
+
 func _ready() -> void:
 	pass
 
@@ -113,5 +115,11 @@ func _death() -> void:
 	is_dead = true
 	var Body = $AnimatedSprite2D
 	Body.play("death")
+	
+	
+	var scene = load("res://scenes/DeathScreen.tscn")
+	var instance = scene.instantiate()
+	add_child(instance)
+	Screen = instance
 	
 	
