@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://baolnvhg53vek" path="res://assets/tilemap.png" id="2_71j4m"]
 [ext_resource type="Texture2D" uid="uid://beeyws67q6e71" path="res://assets/gabe.png" id="2_qfnet"]
 [ext_resource type="Texture2D" uid="uid://cy12ux2isheuv" path="res://assets/temp_ground.png" id="2_rwgxs"]
+[ext_resource type="Texture2D" uid="uid://dm0a8fqtywocy" path="res://assets/background.png" id="3_jhx03"]
 [ext_resource type="PackedScene" uid="uid://bgos1neyhkuf" path="res://scenes/Player.tscn" id="4_k0juu"]
 [ext_resource type="PackedScene" uid="uid://ig1fmoesxlk2" path="res://scenes/warp.tscn" id="4_q5onr"]
 [ext_resource type="PackedScene" uid="uid://cu4wwvdux1mae" path="res://scenes/spikes/s_spike.tscn" id="5_71j4m"]
@@ -56,6 +57,14 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jhx03"]
+texture = ExtResource("3_jhx03")
+texture_region_size = Vector2i(250, 142)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_olqrh"]
+sources/0 = SubResource("TileSetAtlasSource_jhx03")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qfnet"]
 texture = ExtResource("2_71j4m")
@@ -176,6 +185,10 @@ wait_time = 0.2
 
 [node name="Terrain" type="Node2D" parent="." unique_id=1722484335]
 position = Vector2(-1, 0)
+
+[node name="Background" type="TileMapLayer" parent="Terrain" unique_id=1459573500]
+tile_map_data = PackedByteArray("AAAFABEAAAAAAAAAAAATABEAAAAAAAAAAAAhABEAAAAAAAAAAAAwABEAAAAAAAAAAAA+ABEAAAAAAAAAAABMABEAAAAAAAAAAABbABEAAAAAAAAAAABpABEAAAAAAAAAAAB4ABEAAAAAAAAAAACGABEAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_olqrh")
 
 [node name="Foreground" type="TileMapLayer" parent="Terrain" unique_id=1729247231]
 position = Vector2(2, 0)
