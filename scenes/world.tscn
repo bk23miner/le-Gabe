@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://dg0gaap5cyomm" path="res://scenes/Platform.tscn" id="8_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://0hb4ks5l4xph" path="res://scenes/spikes/spike.tscn" id="8_7r4gi"]
 [ext_resource type="PackedScene" uid="uid://df4k3ob1jivqy" path="res://scenes/spikes/s_spikex3.tscn" id="8_w7kh3"]
+[ext_resource type="PackedScene" uid="uid://d2bd25rbcciu6" path="res://scenes/spikes/Staller-big2.tscn" id="10_e3hyu"]
+[ext_resource type="PackedScene" uid="uid://yisbu841v1ed" path="res://scenes/spikes/Staller.tscn" id="11_q5onr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qfnet"]
 atlas = ExtResource("2_qfnet")
@@ -146,9 +148,6 @@ sources/3 = SubResource("TileSetAtlasSource_qfnet")
 [node name="World" type="Node2D" unique_id=538709576 groups=["World"]]
 script = ExtResource("1_nnsk1")
 
-[node name="Spike9" parent="." unique_id=239235596 instance=ExtResource("8_7r4gi")]
-position = Vector2(305.5, 311)
-
 [node name="Dash" type="AnimatedSprite2D" parent="." unique_id=1641584467]
 sprite_frames = SubResource("SpriteFrames_msxrf")
 frame_progress = 0.0018673672
@@ -238,70 +237,91 @@ zoom = Vector2(5.31, 5.31)
 
 [node name="LV2" type="Node" parent="." unique_id=443287667]
 
+[node name="Spike" parent="LV2" unique_id=944883597 instance=ExtResource("8_7r4gi")]
+position = Vector2(291.5, 332)
+
+[node name="Spike2" parent="LV2" unique_id=580568242 instance=ExtResource("8_7r4gi")]
+position = Vector2(298.5, 332)
+
+[node name="Spike3" parent="LV2" unique_id=721706582 instance=ExtResource("5_71j4m")]
+position = Vector2(333.5, 249)
+
+[node name="Spike4" parent="LV2" unique_id=952531513 instance=ExtResource("5_71j4m")]
+position = Vector2(326.5, 249)
+
+[node name="Spike5" parent="LV2" unique_id=1129756506 instance=ExtResource("8_w7kh3")]
+position = Vector2(348.5, 227)
+rotation = -3.1415925
+
+[node name="Spike6" parent="LV2" unique_id=1988861685 instance=ExtResource("8_w7kh3")]
+position = Vector2(330.5, 227)
+rotation = -3.1415925
+
+[node name="Spike7" parent="LV2" unique_id=465830819 instance=ExtResource("8_w7kh3")]
+position = Vector2(362, 240.5)
+rotation = -1.5707964
+
+[node name="Spike8" parent="LV2" unique_id=1537586393 instance=ExtResource("8_w7kh3")]
+position = Vector2(362, 258.5)
+rotation = -1.5707964
+
+[node name="Spike11" parent="LV2" unique_id=806622081 instance=ExtResource("8_w7kh3")]
+position = Vector2(340, 261.5)
+rotation = 1.5707964
+
+[node name="Platform" parent="LV2" unique_id=47477410 instance=ExtResource("8_4mrxx")]
+position = Vector2(342.25, 296)
+
+[node name="Platform2" parent="LV2" unique_id=1506094411 instance=ExtResource("8_4mrxx")]
+position = Vector2(350.05, 296)
+
+[node name="Platform3" parent="LV2" unique_id=2034272926 instance=ExtResource("8_4mrxx")]
+position = Vector2(357.85, 296)
+
+[node name="Platform4" parent="LV2" unique_id=1485356106 instance=ExtResource("8_4mrxx")]
+position = Vector2(361.75, 296)
+
+[node name="Platform5" parent="LV2" unique_id=811760424 instance=ExtResource("8_4mrxx")]
+position = Vector2(300, 275)
+
+[node name="Platform6" parent="LV2" unique_id=92566364 instance=ExtResource("8_4mrxx")]
+position = Vector2(307.8, 275)
+
+[node name="Platform7" parent="LV2" unique_id=1785166276 instance=ExtResource("8_4mrxx")]
+position = Vector2(311.7, 275)
+
+[node name="Spike10" parent="LV2" unique_id=1822045826 instance=ExtResource("5_71j4m")]
+position = Vector2(362, 270.5)
+rotation = -1.5707964
+
+[node name="Spike12" parent="LV2" unique_id=1479111450 instance=ExtResource("5_71j4m")]
+position = Vector2(340, 273.5)
+rotation = 1.5707964
+
+[node name="StallerBig2" parent="LV2" unique_id=1642453956 instance=ExtResource("10_e3hyu")]
+position = Vector2(306, 311.5)
+rotation = 3.1415925
+
 [node name="Camera2D2" type="Camera2D" parent="LV2" unique_id=515852643]
 position = Vector2(312.5, 274.99)
 zoom = Vector2(5.31, 5.31)
 
-[node name="Spike" parent="." unique_id=944883597 instance=ExtResource("8_7r4gi")]
-position = Vector2(291.5, 332)
+[node name="Staller-big" parent="LV2" unique_id=520849843 instance=ExtResource("11_q5onr")]
+position = Vector2(312.5, 304.5)
+rotation = -3.1415925
 
-[node name="Spike2" parent="." unique_id=580568242 instance=ExtResource("8_7r4gi")]
-position = Vector2(298.5, 332)
-
-[node name="Spike3" parent="." unique_id=721706582 instance=ExtResource("5_71j4m")]
-position = Vector2(333.5, 249)
-
-[node name="Spike4" parent="." unique_id=952531513 instance=ExtResource("5_71j4m")]
-position = Vector2(326.5, 249)
-
-[node name="Spike5" parent="." unique_id=1129756506 instance=ExtResource("8_w7kh3")]
-position = Vector2(348.5, 227)
+[node name="StallerBig3" parent="LV2" unique_id=10430801 instance=ExtResource("10_e3hyu")]
+position = Vector2(312.5, 297.5)
 rotation = 3.1415927
 
-[node name="Spike6" parent="." unique_id=1988861685 instance=ExtResource("8_w7kh3")]
-position = Vector2(330.5, 227)
-rotation = 3.1415927
+[node name="StallerBig4" parent="LV2" unique_id=843207163 instance=ExtResource("10_e3hyu")]
+position = Vector2(270.5, 290.5)
 
-[node name="Spike7" parent="." unique_id=465830819 instance=ExtResource("8_w7kh3")]
-position = Vector2(362, 240.5)
-rotation = -1.5707964
+[node name="Staller-big2" parent="LV2" unique_id=1389625419 instance=ExtResource("11_q5onr")]
+position = Vector2(270.5, 283.5)
 
-[node name="Spike8" parent="." unique_id=1537586393 instance=ExtResource("8_w7kh3")]
-position = Vector2(362, 258.5)
-rotation = -1.5707964
-
-[node name="Spike11" parent="." unique_id=806622081 instance=ExtResource("8_w7kh3")]
-position = Vector2(340, 261.5)
-rotation = 1.5707964
-
-[node name="Platform" parent="." unique_id=47477410 instance=ExtResource("8_4mrxx")]
-position = Vector2(342.25, 296)
-
-[node name="Platform2" parent="." unique_id=1506094411 instance=ExtResource("8_4mrxx")]
-position = Vector2(350.05, 296)
-
-[node name="Platform3" parent="." unique_id=2034272926 instance=ExtResource("8_4mrxx")]
-position = Vector2(357.85, 296)
-
-[node name="Platform4" parent="." unique_id=1485356106 instance=ExtResource("8_4mrxx")]
-position = Vector2(361.75, 296)
-
-[node name="Platform5" parent="." unique_id=811760424 instance=ExtResource("8_4mrxx")]
-position = Vector2(300, 275)
-
-[node name="Platform6" parent="." unique_id=92566364 instance=ExtResource("8_4mrxx")]
-position = Vector2(307.8, 275)
-
-[node name="Platform7" parent="." unique_id=1785166276 instance=ExtResource("8_4mrxx")]
-position = Vector2(311.7, 275)
-
-[node name="Spike10" parent="." unique_id=1822045826 instance=ExtResource("5_71j4m")]
-position = Vector2(362, 270.5)
-rotation = -1.5707964
-
-[node name="Spike12" parent="." unique_id=1479111450 instance=ExtResource("5_71j4m")]
-position = Vector2(340, 273.5)
-rotation = 1.5707964
+[node name="StallerBig2" parent="." unique_id=1352239707 instance=ExtResource("10_e3hyu")]
+position = Vector2(277, 283.5)
 
 [connection signal="timeout" from="D-Jump/Timer" to="." method="reset_Wings"]
 [connection signal="timeout" from="D-Jump2/Timer" to="." method="reset_WJ"]
