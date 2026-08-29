@@ -44,6 +44,8 @@ func _process(delta: float) -> void:
 			dash = false
 			cnt = 0
 			count = 0
+			
+			
 		
 func reset_Wings() -> void:
 	Wings.visible = false 
@@ -79,4 +81,4 @@ func Dash(LEFT) -> void:
 
 
 func restart() -> void:
-	get_tree().reload_current_scene()
+	get_tree().reload_current_scene()  

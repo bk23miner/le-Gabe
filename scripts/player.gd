@@ -10,18 +10,24 @@ class_name Player extends CharacterBody2D
 @export var remaining_walljump = 1
 
 var is_dead = false
+var count  = 0
+var floor = false
 
 var dashing = false
 var temp_x_vel
 var temp_y_vel
 var temp_bd_y_vel
 
+var Screen
+
 func _ready() -> void:
 	pass
 
 func _physics_process(delta):
+	counting(delta)
 	if Input.is_action_just_pressed("restart"):
 		get_tree().get_first_node_in_group("World").restart()
+	
 	#if f_dash:
 	#	f_dash = false
 	#	velocity.y= 0
@@ -51,11 +57,11 @@ func _physics_process(delta):
 					remaining_djumps -=1
 					walljump()
 					
-			elif Input.is_action_just_pressed("jump") and !is_on_floor() and remaining_djumps>0:
+			elif Input.is_action_just_pressed("jump") and !floor and remaining_djumps>0:
 				velocity.y = jump_speed
 				remaining_djumps -= 1
 				get_tree().get_first_node_in_group("World").Djump()
-			elif Input.is_action_just_pressed("jump") and is_on_floor():
+			elif Input.is_action_just_pressed("jump") and floor:
 				velocity.y = jump_speed
 		
 		var Body = $AnimatedSprite2D
@@ -82,7 +88,17 @@ func _physics_process(delta):
 
 
 	
-
+func counting(d):
+	if !is_on_floor():
+		count+=d
+		if count <= 0.2:
+			floor = true
+		else:
+			floor = false
+	else:
+		count = 0
+		floor = true
+		
 
 func _on_dash_timer_timeout() -> void:
 	gravity = 0
@@ -99,5 +115,11 @@ func _death() -> void:
 	is_dead = true
 	var Body = $AnimatedSprite2D
 	Body.play("death")
+	
+	
+	var scene = load("res://scenes/DeathScreen.tscn")
+	var instance = scene.instantiate()
+	add_child(instance)
+	Screen = instance
 	
 	
