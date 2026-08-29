@@ -1,8 +1,17 @@
 [gd_scene format=3 uid="uid://id1v60sssc0p"]
 
+[ext_resource type="FontFile" uid="uid://kn0p68el3jo0" path="res://assets/Star Crush.ttf" id="1_biyii"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_msxrf"]
+font = ExtResource("1_biyii")
 font_size = 179
 font_color = Color(0.8784314, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_c302w"]
+font = ExtResource("1_biyii")
+
+[sub_resource type="LabelSettings" id="LabelSettings_j8abw"]
+font = ExtResource("1_biyii")
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=311786936]
 
@@ -37,8 +46,10 @@ alignment = 1
 [node name="Label2" type="Label" parent="HBoxContainer" unique_id=1466248329]
 layout_mode = 2
 text = "Press R to restart"
+label_settings = SubResource("LabelSettings_c302w")
 
 [node name="Label" type="Label" parent="HBoxContainer" unique_id=821614642]
 layout_mode = 2
 text = "Press ENTER to reset"
+label_settings = SubResource("LabelSettings_j8abw")
 horizontal_alignment = 2

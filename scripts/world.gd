@@ -21,12 +21,18 @@ func _ready() -> void:
 	elif Level== 2:
 		PL.position = $LV2/Pspawn.position
 		$"LV2/Camera2D2".enabled = true
+	elif Level == 3:#
+		$lv3/Camera2D3.enabled = true
+		PL.position = $lv3/Pspawn.position
 	
 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("reset"):
+		Level = 1
+		restart()
 	if dash:
 		count += delta
 		if count >= 0.03 && cnt == 0:
