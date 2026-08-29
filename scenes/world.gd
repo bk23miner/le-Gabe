@@ -5,6 +5,7 @@ var PL: Node = null
 var count = 0
 var dash = false
 var cnt = 0
+static var level = 1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Wings = $"D-Jump"
@@ -76,7 +77,5 @@ func Dash(LEFT) -> void:
 		$Dash.flip_h = false
 		$Dash2.flip_h = false
 	
-
-
 func restart() -> void:
 	get_tree().reload_current_scene()

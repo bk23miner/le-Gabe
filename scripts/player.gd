@@ -5,13 +5,12 @@ class_name Player extends CharacterBody2D
 @export var jump_speed = -135
 @export var gravity = 500
 
-@export var remaining_djumps = 9999
-@export var remaining_dash = 100
-@export var remaining_walljump = 100
+@export var remaining_djumps = 1
+@export var remaining_dash = 1
+@export var remaining_walljump = 1
 
 var is_dead = false
 
-var f_dash = false
 var dashing = false
 var temp_x_vel
 var temp_y_vel
@@ -21,6 +20,8 @@ func _ready() -> void:
 	pass
 
 func _physics_process(delta):
+	if Input.is_action_just_pressed("restart"):
+		get_tree().get_first_node_in_group("World").restart()
 	#if f_dash:
 	#	f_dash = false
 	#	velocity.y= 0
@@ -78,12 +79,12 @@ func _physics_process(delta):
 		move_and_slide()
 
 	
-	
+
+
 	
 
 
 func _on_dash_timer_timeout() -> void:
-	f_dash = true
 	gravity = 0
 	dashing = false
 	print("finish dash")

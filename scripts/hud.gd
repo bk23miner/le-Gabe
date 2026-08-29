@@ -8,9 +8,21 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var I = get_Int()
-	$Control/TextureRect/Label.text = str(get_tree().get_first_node_in_group("Player").remaining_djumps)
-	pass
+	if get_tree().get_first_node_in_group("Player").remaining_djumps >0:
+		$MarginContainer/HBoxContainer/TextureRect.texture = load("res://assets/djump.png")
+	else:
+		$MarginContainer/HBoxContainer/TextureRect.texture = load("res://assets/djump_red.png")
+		
+	
+	if get_tree().get_first_node_in_group("Player").remaining_walljump >0:
+		$MarginContainer/HBoxContainer/wjump.texture = load("res://assets/wjump.png")
+	else:
+		$MarginContainer/HBoxContainer/wjump.texture = load("res://assets/wjump_red.png")
+	
+	if get_tree().get_first_node_in_group("Player").remaining_dash >0:
+		$MarginContainer/HBoxContainer/dash.texture = load("res://assets/dash.png")
+	else:
+		$MarginContainer/HBoxContainer/dash.texture = load("res://assets/dash_red.png")
 	
 
 
