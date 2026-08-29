@@ -6,7 +6,7 @@ class_name Player extends CharacterBody2D
 @export var gravity = 500
 
 @export var remaining_djumps = 10
-@export var remaining_dash = 1
+@export var remaining_dash = 100
 @export var remaining_walljump = 2
 @export var Wings: Node2D#
 
@@ -32,6 +32,7 @@ func _physics_process(delta):
 			dashing = true
 			temp_x_vel = Input.get_axis("left", "right") *(speed + dash_speed)
 			remaining_dash -= 1
+			get_tree().get_first_node_in_group("World").Dash(Input.get_axis("left","right") == -1)
 		if dashing:
 			velocity.x = temp_x_vel
 		elif !dashing:

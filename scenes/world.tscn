@@ -7,6 +7,28 @@
 [ext_resource type="PackedScene" uid="uid://bgos1neyhkuf" path="res://scenes/Player.tscn" id="4_k0juu"]
 [ext_resource type="PackedScene" uid="uid://cu4wwvdux1mae" path="res://scenes/spikes/s_spike.tscn" id="5_71j4m"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfnet"]
+atlas = ExtResource("2_qfnet")
+region = Rect2(89, 1, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7141"]
+atlas = ExtResource("2_qfnet")
+region = Rect2(77, 1, 7, 7)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_msxrf"]
+animations = [{
+"frames": [{
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_qfnet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7141")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_cw2d6"]
 atlas = ExtResource("2_qfnet")
 region = Rect2(152, 34, 16, 11)
@@ -98,6 +120,14 @@ size = Vector2(1501, 576)
 [node name="World" type="Node2D" unique_id=538709576 groups=["World"]]
 script = ExtResource("1_nnsk1")
 
+[node name="Dash" type="AnimatedSprite2D" parent="." unique_id=1641584467]
+sprite_frames = SubResource("SpriteFrames_msxrf")
+frame_progress = 0.89247304
+
+[node name="Dash2" type="AnimatedSprite2D" parent="." unique_id=2003883141]
+sprite_frames = SubResource("SpriteFrames_msxrf")
+frame_progress = 0.093526274
+
 [node name="D-Jump" type="AnimatedSprite2D" parent="." unique_id=1579010172]
 position = Vector2(0, 2)
 sprite_frames = SubResource("SpriteFrames_i7141")
@@ -112,7 +142,6 @@ tile_map_data = PackedByteArray("AAD2/yEAAwAAAAEAAAD2/yAAAwAAAAEAAAD2/x8AAwAAAAE
 tile_set = SubResource("TileSet_v6fml")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1118562819]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=572106592]
 process_physics_priority = 1
