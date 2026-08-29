@@ -3,15 +3,15 @@
 [ext_resource type="Script" uid="uid://lni6cnh7sm32" path="res://scripts/spike.gd" id="1_fg7yi"]
 [ext_resource type="Texture2D" uid="uid://boe77y7j0o8pn" path="res://assets/spikes.png" id="1_lfawr"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lfawr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fg7yi"]
 atlas = ExtResource("1_lfawr")
-region = Rect2(16, 0, 19, 6)
+region = Rect2(0, 0, 7, 6)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wgqp8"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lfawr")
+"texture": SubResource("AtlasTexture_fg7yi")
 }],
 "loop": 1,
 "name": &"default",
@@ -27,6 +27,6 @@ script = ExtResource("1_fg7yi")
 sprite_frames = SubResource("SpriteFrames_wgqp8")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=644262625]
-polygon = PackedVector2Array(6, -2, -6, -2, -10, 3, 10, 3)
+polygon = PackedVector2Array(0, -2, -4, 3, 4, 3)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
