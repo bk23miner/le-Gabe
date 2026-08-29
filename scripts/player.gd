@@ -82,4 +82,4 @@ func _on_dash_timer_timeout() -> void:
 	dashing = false
 	print("finish dash")
 	$"Dash-Timer".stop()
-	velocity.y = -30
+	velocity.y = 0
