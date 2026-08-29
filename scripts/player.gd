@@ -1,66 +1,85 @@
 class_name Player extends CharacterBody2D
 
 @export var speed = 120
+@export var dash_speed = 200
 @export var jump_speed = -180
 @export var gravity = 500
 @export var remaining_djumps = 1
 @export var remaining_dash = 1
 @export var remaining_walljump = 0
 @export var Wings: Node2D#
+var f_dash = false
 var dashing = false
+var temp_x_vel
+var temp_y_vel
+var temp_bd_y_vel
 
 func _ready() -> void:
 	Wings = $Sprite2D
 	Wings.visible = false
 
 func _physics_process(delta):
-	# Add gravity every frame
-
-	# Input affects x axis only
-	velocity.x = Input.get_axis("left", "right") * speed
-	var y_dir = Input.get_axis("up", "down")
+	#if f_dash:
+	#	f_dash = false
+	#	velocity.y= 0
+		
+	if Input.is_action_just_pressed("dash") && !dashing && remaining_dash > 0 :
+		$"Dash-Timer".start()
+		dashing = true
+		temp_bd_y_vel = velocity.y
+		temp_x_vel = Input.get_axis("left", "right") *(speed + dash_speed)
+		temp_y_vel = Input.get_axis("up","down") * (speed + dash_speed)
+	if dashing:
+		velocity.x = temp_x_vel
+		velocity.y = temp_y_vel
+	elif !dashing:
+		print("Grav")	
+		
+		velocity.y += gravity * delta
+		velocity.x = Input.get_axis("left", "right") * speed
+		var y_dir = Input.get_axis("up", "down")
 	
 
 
-	# Only allow jumping when on the ground or if djumps greater 0
-	if Input.is_action_just_pressed("jump") and !is_on_floor() and remaining_djumps>0:
-		Wings.visible = true
-		$Timer.start()
-		velocity.y = jump_speed
-		remaining_djumps -= 1
-	elif Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jump_speed
-	elif Input.is_action_just_pressed("dash") && !dashing && remaining_dash > 0 :
-		$"Dash-Timer".start()
-		dashing = true
+		if Input.is_action_just_pressed("jump") and !is_on_floor() and remaining_djumps>0:
+			Wings.visible = true
+			$Timer.start()
+			velocity.y = jump_speed
+			remaining_djumps -= 1
+		elif Input.is_action_just_pressed("jump") and is_on_floor():
+			velocity.y = jump_speed
+
 	var Body = $AnimatedSprite2D
 	
 	var direction = sign(velocity.x)
-		#rechts	
+	#rechts	
 	if direction > 0:
 		Body.play("right")
-	#links
+		#links
 	elif direction < 0:
 		Body.play("left")	
 	elif direction == 0:
 		Body.play("idle")
 		
-	if dashing:
-		velocity.x =  Input.get_axis("left", "right") * (speed + 200)
-		velocity.y = y_dir * (speed+100)
-	else:	
-		velocity.y += gravity * delta
 	
 	
 	
+	
+	
+	print(str(velocity.y))
 
 	move_and_slide()
 		
 func reset_Wings() -> void:
 	Wings.visible = false 
+	$Timer.stop()
 	
 	
 
 
 func _on_dash_timer_timeout() -> void:
+	f_dash = true
 	dashing = false
+	print("finish dash")
+	$"Dash-Timer".stop()
+	velocity.y = -30
