@@ -24,7 +24,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_i7141")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"default",
 "speed": 5.0
 }]
@@ -40,13 +40,13 @@ region = Rect2(152, 23, 16, 11)
 [sub_resource type="SpriteFrames" id="SpriteFrames_i7141"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_cw2d6")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_70d11")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"default",
 "speed": 5.0
 }]
@@ -122,7 +122,7 @@ script = ExtResource("1_nnsk1")
 
 [node name="Dash" type="AnimatedSprite2D" parent="." unique_id=1641584467]
 sprite_frames = SubResource("SpriteFrames_msxrf")
-frame_progress = 0.89247304
+frame_progress = 0.0018673672
 
 [node name="Dash2" type="AnimatedSprite2D" parent="." unique_id=2003883141]
 sprite_frames = SubResource("SpriteFrames_msxrf")
@@ -131,8 +131,18 @@ frame_progress = 0.093526274
 [node name="D-Jump" type="AnimatedSprite2D" parent="." unique_id=1579010172]
 position = Vector2(0, 2)
 sprite_frames = SubResource("SpriteFrames_i7141")
+frame = 1
+frame_progress = 1.0
 
 [node name="Timer" type="Timer" parent="D-Jump" unique_id=136905356]
+wait_time = 0.2
+
+[node name="D-Jump2" type="AnimatedSprite2D" parent="." unique_id=790242995]
+position = Vector2(0, 2)
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_i7141")
+
+[node name="Timer" type="Timer" parent="D-Jump2" unique_id=1952296156]
 wait_time = 0.2
 
 [node name="Terrain" type="Node2D" parent="." unique_id=1722484335]
@@ -159,3 +169,4 @@ texture = ExtResource("2_rwgxs")
 position = Vector2(-99, 541)
 
 [connection signal="timeout" from="D-Jump/Timer" to="." method="reset_Wings"]
+[connection signal="timeout" from="D-Jump2/Timer" to="." method="reset_WJ"]

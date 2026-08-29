@@ -1,5 +1,6 @@
 extends Node2D
 var Wings
+var Wings2
 var PL: Node = null
 var count = 0
 var dash = false
@@ -8,6 +9,9 @@ var cnt = 0
 func _ready() -> void:
 	Wings = $"D-Jump"
 	Wings.visible = false
+	
+	Wings2 = $"D-Jump2"
+	Wings2.visible = false
 	$Dash.visible = false
 	$Dash2.visible = false
 	pass
@@ -44,13 +48,23 @@ func _process(delta: float) -> void:
 func reset_Wings() -> void:
 	Wings.visible = false 
 	$"D-Jump/Timer".stop()
-
+	
+	
+func reset_WJ() -> void:
+	Wings2.visible = false
+	$"D-Jump2/Timer".stop()
 
 func Djump() -> void :
 	$"D-Jump".position = $Player.position
 	Wings.visible = true
 	Wings.play("default")
 	$"D-Jump/Timer".start()
+
+func Wjump() -> void:
+	$"D-Jump2".position = $Player.position
+	Wings2.visible = true
+	Wings2.play("default")
+	$"D-Jump2/Timer".start()
 	
 
 func Dash(LEFT) -> void: 
