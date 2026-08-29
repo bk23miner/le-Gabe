@@ -1,3 +1,18 @@
 [gd_scene format=3 uid="uid://ig1fmoesxlk2"]
 
+[ext_resource type="Script" uid="uid://buxssi13kvkoj" path="res://scripts/warp.gd" id="1_m640b"]
+[ext_resource type="Texture2D" uid="uid://coj4fimfvy8ww" path="res://assets/salvation.png" id="2_jxjqk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_msxrf"]
+
 [node name="Warp" type="Area2D" unique_id=1929413132]
+script = ExtResource("1_m640b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2083466560]
+scale = Vector2(0.35, 1.775)
+shape = SubResource("RectangleShape2D_msxrf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=793721601]
+texture = ExtResource("2_jxjqk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -5,16 +5,23 @@ var PL: Node = null
 var count = 0
 var dash = false
 var cnt = 0
+static var Level = 1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Wings = $"D-Jump"
 	Wings.visible = false
-	
+	PL = $Player
 	Wings2 = $"D-Jump2"
 	Wings2.visible = false
 	$Dash.visible = false
 	$Dash2.visible = false
-	pass
+	if Level == 1:
+		$LV1/Camera2D.enabled = true
+		PL.position = $LV1/Pspawn.position
+	elif Level== 2:
+		PL.position = $LV2/Pspawn.position
+		$"LV2/Camera2D2".enabled = true
+	
 
 
 
@@ -78,6 +85,13 @@ func Dash(LEFT) -> void:
 		$Dash.flip_h = false
 		$Dash2.flip_h = false
 	
+
+func nxtLvL():
+	Level += 1
+	restart()
+	
+	
+
 
 
 func restart() -> void:
