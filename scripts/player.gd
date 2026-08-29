@@ -5,7 +5,7 @@ class_name Player extends CharacterBody2D
 @export var jump_speed = -180
 @export var gravity = 500
 
-@export var remaining_djumps = 1
+@export var remaining_djumps = 10
 @export var remaining_dash = 1
 @export var remaining_walljump = 2
 @export var Wings: Node2D#
@@ -19,8 +19,7 @@ var temp_y_vel
 var temp_bd_y_vel
 
 func _ready() -> void:
-	Wings = $Sprite2D
-	Wings.visible = false
+	pass
 
 func _physics_process(delta):
 	#if f_dash:
@@ -52,10 +51,9 @@ func _physics_process(delta):
 					walljump()
 					
 			elif Input.is_action_just_pressed("jump") and !is_on_floor() and remaining_djumps>0:
-				Wings.visible = true
-				$Timer.start()
 				velocity.y = jump_speed
 				remaining_djumps -= 1
+				get_tree().get_first_node_in_group("World").Djump()
 			elif Input.is_action_just_pressed("jump") and is_on_floor():
 				velocity.y = jump_speed
 		
@@ -78,10 +76,7 @@ func _physics_process(delta):
 	# print(str(velocity.y))
 
 		move_and_slide()
-		
-func reset_Wings() -> void:
-	Wings.visible = false 
-	$Timer.stop()
+
 	
 	
 	

@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bgos1neyhkuf"]
 
 [ext_resource type="Script" uid="uid://xh368dmc624i" path="res://scripts/player.gd" id="1_v6fml"]
-[ext_resource type="Texture2D" uid="uid://damgmngihqkqw" path="res://assets/wings.png" id="2_3li8b"]
 [ext_resource type="Texture2D" uid="uid://crj6gnwc3r28x" path="res://assets/sprites.png" id="2_v6fml"]
 [ext_resource type="Texture2D" uid="uid://coj4fimfvy8ww" path="res://assets/salvation.png" id="3_mdl7e"]
 
@@ -67,11 +66,6 @@ shape = SubResource("RectangleShape2D_msxrf")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2119053237]
 zoom = Vector2(5, 5)
 position_smoothing_enabled = true
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=530342090]
-position = Vector2(0, -0.955)
-scale = Vector2(0.505, 0.505)
-texture = ExtResource("2_3li8b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=313501202]
 sprite_frames = SubResource("SpriteFrames_msxrf")
