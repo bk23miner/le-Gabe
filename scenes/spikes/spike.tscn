@@ -27,6 +27,6 @@ script = ExtResource("1_eu6er")
 sprite_frames = SubResource("SpriteFrames_qfnet")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1401711752]
-polygon = PackedVector2Array(-4, 4, 4, 4, 0, -3)
+polygon = PackedVector2Array(-3, 3, 3, 3, 0, -3)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
