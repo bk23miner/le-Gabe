@@ -1,8 +1,8 @@
 class_name Player extends CharacterBody2D
 
-@export var speed = 120
+@export var speed = 100
 @export var dash_speed = 250
-@export var jump_speed = -180
+@export var jump_speed = -135
 @export var gravity = 500
 
 @export var remaining_djumps = 9999
@@ -92,7 +92,7 @@ func _on_dash_timer_timeout() -> void:
 	print(str(PI))
 	
 func walljump() -> void:
-	velocity.y = jump_speed +2
+	velocity.y = jump_speed * 1.314159265358979
 
 func _death() -> void:
 	is_dead = true
