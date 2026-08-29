@@ -30,12 +30,10 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("dash") && !dashing && remaining_dash > 0 :
 			$"Dash-Timer".start()
 			dashing = true
-			temp_bd_y_vel = velocity.y
 			temp_x_vel = Input.get_axis("left", "right") *(speed + dash_speed)
-			temp_y_vel = Input.get_axis("up","down") * (speed + dash_speed)
+			remaining_dash -= 1
 		if dashing:
 			velocity.x = temp_x_vel
-			velocity.y = temp_y_vel
 		elif !dashing:
 			velocity.y += gravity * delta
 			velocity.x = Input.get_axis("left", "right") * speed
@@ -88,7 +86,6 @@ func _on_dash_timer_timeout() -> void:
 	dashing = false
 	print("finish dash")
 	$"Dash-Timer".stop()
-	velocity.y  = -100
 	gravity = 500
 	print(str(PI))
 	
