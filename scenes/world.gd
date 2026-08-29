@@ -3,6 +3,7 @@ var Wings
 var PL: Node = null
 var count = 0
 var dash = false
+var cnt = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Wings = $"D-Jump"
@@ -17,22 +18,28 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if dash:
 		count += delta
-		if count <= 0.03:
+		if count >= 0.03 && cnt == 0:
 			$Dash.visible = true
 			$Dash.play("default")
 			$Dash.position = $Player.position
 			print("D1")
+			cnt =1
 		
-		if count <= 0.06:
+		if count >= 0.08 && cnt == 1:
 			$Dash2.visible = true
 			$Dash2.play("default")
 			$Dash2.position = $Player.position
 			print("D2")
-		if count >= 0.25:
+			
+			cnt =2
+		if count >= 0.25 && cnt == 2:
 			$Dash.visible = false
-		if count >= 0.28:
+			cnt =3
+		if count >= 0.28 && cnt == 3:
 			$Dash2.visible = false
 			dash = false
+			cnt = 0
+			count = 0
 		
 func reset_Wings() -> void:
 	Wings.visible = false 
