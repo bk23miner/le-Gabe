@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://d2bd25rbcciu6"]
+
+[ext_resource type="Script" uid="uid://lni6cnh7sm32" path="res://scripts/spike.gd" id="1_muvp3"]
+[ext_resource type="Texture2D" uid="uid://baolnvhg53vek" path="res://assets/tilemap.png" id="2_0ufx8"]
+
+[node name="StallerBig2" type="Node2D" unique_id=1642453956]
+script = ExtResource("1_muvp3")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1190487018]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1217999281]
+texture = ExtResource("2_0ufx8")
+region_enabled = true
+region_rect = Rect2(56, 16, 7, 7)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1995053628]
+polygon = PackedVector2Array(-2, -3, 2, -3, 2, -2, 1, -1, 1, 2, 0, 3, -1, 2, -1, -1, -2, -2)
