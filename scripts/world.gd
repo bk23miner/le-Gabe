@@ -10,8 +10,6 @@ var main
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	main = get_tree().get_first_node_in_group("Main")
-	add_child(load("res://scenes/hud.tscn").instantiate())
 	Wings = $"D-Jump"
 	Wings.visible = false
 	PL = $Player
@@ -19,6 +17,8 @@ func _ready() -> void:
 	Wings2.visible = false
 	$Dash.visible = false
 	$Dash2.visible = false
+	main = get_tree().get_first_node_in_group("Main")
+	add_child(load("res://scenes/hud.tscn").instantiate())
 	if Level == 1:
 		$LV1/Camera2D.enabled = true
 		PL.position = $LV1/Pspawn.position
@@ -100,12 +100,14 @@ func reset_WJ() -> void:
 	$"D-Jump2/Timer".stop()
 
 func Djump() -> void :
+	print("DJUMP")
 	$"D-Jump".position = $Player.position
 	Wings.visible = true
 	Wings.play("default")
 	$"D-Jump/Timer".start()
 
 func Wjump() -> void:
+	print("WJUMP")
 	$"D-Jump2".position = $Player.position
 	Wings2.visible = true
 	Wings2.play("default")
@@ -113,6 +115,8 @@ func Wjump() -> void:
 	
 
 func Dash(LEFT) -> void: 
+	
+	print("Dash")
 	dash = true
 	if LEFT:
 		$Dash.flip_h = true
