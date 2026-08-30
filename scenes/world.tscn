@@ -621,12 +621,6 @@ position = Vector2(1019.5, 304)
 [node name="Spike12" parent="lvl5" unique_id=1918634452 instance=ExtResource("8_7r4gi")]
 position = Vector2(1026.5, 304)
 
-[node name="Spike13" parent="lvl5" unique_id=2111786091 instance=ExtResource("8_7r4gi")]
-position = Vector2(1048.5, 290)
-
-[node name="Spike14" parent="lvl5" unique_id=1693143545 instance=ExtResource("8_7r4gi")]
-position = Vector2(1055.5, 290)
-
 [node name="Spike15" parent="lvl5" unique_id=1501762623 instance=ExtResource("8_7r4gi")]
 position = Vector2(1068.5, 283)
 
@@ -641,6 +635,12 @@ position = Vector2(889, 324)
 
 [node name="Pspawn" type="Node2D" parent="lvl5" unique_id=1792476416]
 position = Vector2(894.18506, 293.09158)
+
+[node name="Spike13" parent="lvl5" unique_id=994913495 instance=ExtResource("5_71j4m")]
+position = Vector2(1055.5, 291)
+
+[node name="Spike14" parent="lvl5" unique_id=543059920 instance=ExtResource("5_71j4m")]
+position = Vector2(1048.5, 291)
 
 [node name="lvl6" type="Node" parent="." unique_id=1323944311]
 
