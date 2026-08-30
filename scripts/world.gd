@@ -5,7 +5,7 @@ var PL: Node = null
 var count = 0
 var dash = false
 var cnt = 0
-static var Level =11
+static var Level =1
 var main
 
 # Called when the node enters the scene tree for the first time.
