@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://chloueg1itnem"]
+
+[ext_resource type="Script" uid="uid://cdbqnq1aopdwn" path="res://scripts/trophias.gd" id="1_s0wu4"]
+[ext_resource type="Texture2D" uid="uid://dvpvjfep13gxr" path="res://assets/trophias.png" id="2_vqfa1"]
+
+[node name="Trophias" type="Node2D" unique_id=486006073]
+script = ExtResource("1_s0wu4")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=515739415]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=453733481]
+texture = ExtResource("2_vqfa1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1159299392]
+polygon = PackedVector2Array(-11, -13, -10, -15, -9, -16, 9, -16, 10, -15, 10, -13, 13, -15, 14, -15, 16, -13, 16, -11, 10, -5, 10, -4, 6, 1, 5, 3, 3, 4, 3, 6, 2, 6, 2, 10, 3, 11, 3, 12, 6, 15, 6, 16, -6, 16, -6, 15, -3, 12, -3, 11, -2, 10, -2, 6, -3, 6, -3, 5, -10, -4, -10, -6, -16, -11, -16, -13, -14, -15)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

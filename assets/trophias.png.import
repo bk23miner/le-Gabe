@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do6n4iwn8kdi3"
-path="res://.godot/imported/Celeste-Game-Free-PNG-1085915686.png-1b5019bab7831b8c8698e42fa3da69c4.ctex"
+uid="uid://dvpvjfep13gxr"
+path="res://.godot/imported/trophias.png-73a19cc6466f2dea5e0c7cde92dd1cdb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Celeste-Game-Free-PNG-1085915686.png"
-dest_files=["res://.godot/imported/Celeste-Game-Free-PNG-1085915686.png-1b5019bab7831b8c8698e42fa3da69c4.ctex"]
+source_file="res://assets/trophias.png"
+dest_files=["res://.godot/imported/trophias.png-73a19cc6466f2dea5e0c7cde92dd1cdb.ctex"]
 
 [params]
 
