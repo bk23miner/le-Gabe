@@ -49,6 +49,10 @@ func _ready() -> void:
 	elif Level == 10:
 		$finallvl/Camera2D10.enabled = true
 		PL.position = $finallvl/Pspawn.position
+	elif Level == 11:
+		$NGpp/Camera2D11.enabled = true
+		PL.position = $NGpp/Pspawn.position
+		
 	
 
 
