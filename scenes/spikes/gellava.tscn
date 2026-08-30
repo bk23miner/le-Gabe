@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://cpu8kp7k06ln8"]
+
+[ext_resource type="Texture2D" uid="uid://con6yfsks71sp" path="res://assets/gellava.png" id="1_o8jtn"]
+[ext_resource type="Script" uid="uid://lni6cnh7sm32" path="res://scripts/spike.gd" id="1_udr0p"]
+
+[sub_resource type="Animation" id="Animation_udr0p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 7, 7)]
+}
+
+[sub_resource type="Animation" id="Animation_l51i7"]
+resource_name = "new_animation"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 7, 7), Rect2(8, 0, 7, 7)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ckw6e"]
+_data = {
+&"RESET": SubResource("Animation_udr0p"),
+&"new_animation": SubResource("Animation_l51i7")
+}
+
+[node name="Gellava" type="Node2D" unique_id=31849005]
+script = ExtResource("1_udr0p")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2083513627]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=517620480]
+polygon = PackedVector2Array(-3, 3, 3, 3, 3, -3, -3, -3)
+
+[node name="Node2D" type="Node2D" parent="Area2D" unique_id=1527880215]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/Node2D" unique_id=783941925]
+texture = ExtResource("1_o8jtn")
+region_enabled = true
+region_rect = Rect2(0, 0, 7, 7)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D/Node2D" unique_id=1296975650]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_ckw6e")
+autoplay = &"new_animation"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
