@@ -14,3 +14,8 @@ func custom():
 	$VBoxContainer/Label.label_settings.font_size = 150
 	$VBoxContainer/Label.text = "The End\n or is it"
 	var ls = LabelSettings.new()
+func win():
+	$VBoxContainer/Label.label_settings.set_font_color("Green")
+	$VBoxContainer/Label.label_settings.font_size = 150
+	$VBoxContainer/Label.text = "The End\n You did it!"
+	var ls = LabelSettings.new()
