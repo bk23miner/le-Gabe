@@ -1,29 +1,80 @@
 [gd_scene format=3 uid="uid://dcverlfi4wgjm"]
 
 [ext_resource type="Script" uid="uid://bfdwwyopbpsew" path="res://scripts/menu.gd" id="1_11y2r"]
-[ext_resource type="Texture2D" uid="uid://dc6ls4or6laa5" path="res://icon.svg" id="1_upctu"]
-[ext_resource type="Texture2D" uid="uid://cy12ux2isheuv" path="res://assets/temp_ground.png" id="2_11y2r"]
+[ext_resource type="FontFile" uid="uid://kn0p68el3jo0" path="res://assets/Star Crush.ttf" id="2_11y2r"]
+[ext_resource type="Texture2D" uid="uid://dm0a8fqtywocy" path="res://assets/background.png" id="2_o0tnf"]
+[ext_resource type="Texture2D" uid="uid://qt4pfrrvrge" path="res://assets/start.png" id="2_upctu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msxrf"]
+atlas = ExtResource("2_o0tnf")
+region = Rect2(500, 0, 250, 142)
+
+[sub_resource type="LabelSettings" id="LabelSettings_msxrf"]
+font = ExtResource("2_11y2r")
+font_size = 140
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2dly"]
+atlas = ExtResource("2_upctu")
+region = Rect2(1, 0, 56, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eeleu"]
+atlas = ExtResource("2_upctu")
+region = Rect2(1, 27, 56, 24)
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1070768064]
 script = ExtResource("1_11y2r")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=484090774]
+[node name="Control" type="Control" parent="." unique_id=1889945422]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=271004083]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_msxrf")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1470083589]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
+offset_left = -230.5
+offset_top = -176.5
+offset_right = 230.5
+offset_bottom = 176.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 50
 alignment = 1
 
-[node name="Start" type="TextureButton" parent="VBoxContainer" unique_id=1607486412]
+[node name="Label" type="Label" parent="Control/VBoxContainer" unique_id=453485774]
 layout_mode = 2
-texture_normal = ExtResource("1_upctu")
-texture_hover = ExtResource("2_11y2r")
+text = "Le Gabe"
+label_settings = SubResource("LabelSettings_msxrf")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[node name="CenterContainer" type="CenterContainer" parent="Control/VBoxContainer" unique_id=325437954]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+
+[node name="Start" type="TextureButton" parent="Control/VBoxContainer/CenterContainer" unique_id=1607486412]
+custom_minimum_size = Vector2(188, 72)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_j2dly")
+texture_hover = SubResource("AtlasTexture_eeleu")
+stretch_mode = 0
+
+[connection signal="pressed" from="Control/VBoxContainer/CenterContainer/Start" to="." method="_on_start_pressed"]

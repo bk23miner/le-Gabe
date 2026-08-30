@@ -6,9 +6,11 @@ var count = 0
 var dash = false
 var cnt = 0
 static var Level = 9
+var main
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	main = get_tree().get_first_node_in_group("Main")
 	add_child(load("res://scenes/hud.tscn").instantiate())
 	Wings = $"D-Jump"
 	Wings.visible = false
@@ -56,7 +58,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("reset"):
 		Level = 1
 		restart()
-		get_tree().get_first_node_in_group("Main").MENU = true
+		main.MENU = true
 	if dash:
 		count += delta
 		if count >= 0.03 && cnt == 0:
