@@ -130,11 +130,16 @@ func c_death():
 	is_dead = true
 	var Body = $AnimatedSprite2D
 	Body.play("death")
-	get_tree().get_first_node_in_group("World").Level  = 1
 	var scene = load("res://scenes/DeathScreen.tscn")
 	var instance = scene.instantiate()
 	add_child(instance)
 	Screen = instance
 	Screen.custom()
-	
+func win():
+	is_dead = true
+	get_tree().get_first_node_in_group("World").Level  = 1
+	var scene = load("res://scenes/DeathScreen.tscn")
+	var instance = scene.instantiate()
+	add_child(instance)
+	instance.win()
 	

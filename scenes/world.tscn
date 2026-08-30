@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://b5pcl7nb18wn4" path="res://scenes/spikes/lava.tscn" id="16_lakw3"]
 [ext_resource type="PackedScene" uid="uid://dxv4qgokd4a3o" path="res://scenes/Trophias.tscn" id="17_7t5mc"]
 [ext_resource type="PackedScene" uid="uid://cpu8kp7k06ln8" path="res://scenes/spikes/gellava.tscn" id="18_lakw3"]
+[ext_resource type="PackedScene" uid="uid://b46lo186ua8k3" path="res://scenes/Finish.tscn" id="19_pm21f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jhx03"]
 texture = ExtResource("3_jhx03")
@@ -1223,6 +1224,9 @@ scale = Vector2(0.235, 1)
 position = Vector2(2511, 317)
 rotation = 1.5672898
 scale = Vector2(0.39000013, 0.155)
+
+[node name="Finish2" parent="." unique_id=1507760475 instance=ExtResource("19_pm21f")]
+position = Vector2(2538, 277)
 
 [connection signal="timeout" from="D-Jump/Timer" to="." method="reset_Wings"]
 [connection signal="timeout" from="D-Jump2/Timer" to="." method="reset_WJ"]
